@@ -1,0 +1,2 @@
+2025-10-17 17:34:13 |   INFO   | views:47 - 登录视图被访问, <WSGIRequest: GET '/accounts/login/'>
+2025-10-17 17:34:19 |   INFO   | views:47 - 登录视图被访问, <WSGIRequest: POST '/accounts/login/'>

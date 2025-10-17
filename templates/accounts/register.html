@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}用户注册 - 我的个人博客{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <h1>用户注册</h1>
+        
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                <label for="{{ form.username.id_for_label }}" class="form-label">用户名</label>
+                {{ form.username }}
+                {% if form.username.errors %}
+                    <div class="text-danger">{{ form.username.errors }}</div>
+                {% endif %}
+                <div class="form-text">必填。150个字符或者更少。只能包含字母、数字和@/./+/-/_字符。</div>
+            </div>
+            
+            <div class="mb-3">
+                <label for="{{ form.password1.id_for_label }}" class="form-label">密码</label>
+                {{ form.password1 }}
+                {% if form.password1.errors %}
+                    <div class="text-danger">{{ form.password1.errors }}</div>
+                {% endif %}
+                <div class="form-text">您的密码不能与其他个人信息太相似。您的密码必须包含至少8个字符。您的密码不能是常见密码。您的密码不能全为数字。</div>
+            </div>
+            
+            <div class="mb-3">
+                <label for="{{ form.password2.id_for_label }}" class="form-label">确认密码</label>
+                {{ form.password2 }}
+                {% if form.password2.errors %}
+                    <div class="text-danger">{{ form.password2.errors }}</div>
+                {% endif %}
+                <div class="form-text">为了验证，请输入与上面相同的密码。</div>
+            </div>
+            
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">注册</button>
+                <a href="{% url 'accounts:login' %}" class="btn btn-link">已有账户？立即登录</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
